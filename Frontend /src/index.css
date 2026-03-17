@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --background: 220 20% 97%;
+    --foreground: 224 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 40% 10%;
+
+    --primary: 153 60% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 30% 16%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 45 93% 58%;
+    --accent-foreground: 224 40% 10%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 153 60% 40%;
+
+    --radius: 0.75rem;
+
+    --success: 153 60% 40%;
+    --warning: 45 93% 58%;
+    --info: 210 100% 56%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(224 30% 10%) 0%, hsl(224 30% 18%) 50%, hsl(153 40% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(153 60% 40%) 0%, hsl(153 70% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 97%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+    --shadow-glow: 0 0 40px hsla(153, 60%, 40%, 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 153 60% 40%;
+  }
+
+  .dark {
+    --background: 224 30% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 224 28% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 224 28% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 153 60% 45%;
+    --primary-foreground: 224 40% 6%;
+
+    --secondary: 224 20% 18%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 224 20% 15%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 45 93% 58%;
+    --accent-foreground: 224 40% 6%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 20% 18%;
+    --input: 224 20% 18%;
+    --ring: 153 60% 45%;
+
+    --sidebar-background: 224 30% 8%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 153 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 224 20% 15%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 224 20% 18%;
+    --sidebar-ring: 153 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
